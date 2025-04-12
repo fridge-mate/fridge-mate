@@ -6,12 +6,13 @@ const meta: Meta<typeof QuantityBadge> = {
 	component: QuantityBadge,
 	tags: ["autodocs"],
 };
+
 export default meta;
 
 type Story = StoryObj<typeof QuantityBadge>;
 
-export const Default: Story = {
-	args: {
-		count: 3,
-	},
-};
+export const  Default:Story={
+  args:{
+    count:3
+  }
+}
