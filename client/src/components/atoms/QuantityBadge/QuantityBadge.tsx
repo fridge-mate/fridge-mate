@@ -33,4 +33,8 @@ function QuantityBadge({count}:QuantityBadgeProps) {
 }
 
 export default QuantityBadge
+<<<<<<< HEAD
 >>>>>>> 7e79c24 (feat(ui): add QuantityBadge component and refine Label design)
+=======
+>>>>>>> dab80a7 (feat(ui): add QuantityBadge component and refine Label design)
+>>>>>>> dc57d59 (feat(ui): add QuantityBadge component and refine Label design)
