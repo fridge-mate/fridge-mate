@@ -12,7 +12,6 @@ const dirname =
 
 // More info at: https://storybook.js.org/docs/writing-tests/test-addon
 export default defineWorkspace([
-  "vite.config.ts",
   {
     extends: "vite.config.ts",
     plugins: [
@@ -25,10 +24,9 @@ export default defineWorkspace([
       browser: {
         enabled: true,
         headless: true,
-        name: "chromium",
         provider: "playwright",
+        instances: [{ browser: "chromium" }],
       },
-      include: ["src/**/*.stories.ts"],
       setupFiles: [".storybook/vitest.setup.ts"],
     },
   },
