@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 import QuantityBadge from "@/components/atoms/QuantityBadge/QuantityBadge";
 
 const meta: Meta<typeof QuantityBadge> = {
