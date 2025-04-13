@@ -1,16 +1,19 @@
 import ExpirationBadge from "@/components/atoms/ExpirationBadge/ExpirationBadge";
 import Label from "@/components/atoms/Label/Label";
 import QuantityBadge from "@/components/atoms/QuantityBadge/QuantityBadge";
+import DetailLabelWithButton from "@/components/atoms/DetailLabelWithButton/DetailLabelWithButton";
 type ItemCardProps = {
+	itemId: number;
 	name: string;
 	imageUrl: string; //stringでそのままpathをもらう設計でいいのか再検討
 	daysLeft: number;
 	category: string;
 	quantity: number;
-	onDetailClick?: () => void;
+	onDetailClick: () => void;
 };
 
 const ItemCard: React.FC<ItemCardProps> = ({
+	itemId,
 	name,
 	imageUrl,
 	daysLeft,
@@ -32,7 +35,13 @@ const ItemCard: React.FC<ItemCardProps> = ({
 					</div>
 				</div>
 			</div>
-			<QuantityBadge count={quantity} />
+			<div className="flex space-x-5">
+				<QuantityBadge count={quantity} />
+				<DetailLabelWithButton
+					itemId={itemId}
+					onClick={() => onDetailClick()}
+				/>
+			</div>
 		</div>
 	);
 };

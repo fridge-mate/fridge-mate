@@ -5,7 +5,7 @@ type DetailLabelWithButtonProps = {
 //追加：親要素からdetailModalのopenのstate,itemId,onclockを受け取りopenをtoggleさせる
 const DetailLabelWithButton: React.FC<DetailLabelWithButtonProps> = () => {
 	return (
-		<button type="button" className="flex items-center space-x-2">
+		<button type="button" className="flex items-center space-x-2 text-lg">
 			<p>Detail:</p>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
@@ -13,7 +13,7 @@ const DetailLabelWithButton: React.FC<DetailLabelWithButtonProps> = () => {
 				viewBox="0 0 24 24"
 				strokeWidth={1.5}
 				stroke="currentColor"
-				className="w-5 h-5"
+				className="w-7 h-7"
 				role="img"
 				aria-labelledby="icon-title"
 			>
