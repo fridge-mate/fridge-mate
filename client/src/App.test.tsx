@@ -1,7 +1,7 @@
 // src/App.test.tsx
 import { render } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
-import { page, userEvent } from "@vitest/browser/context";
+import { page } from "@vitest/browser/context";
 
 import App from "./App";
 
