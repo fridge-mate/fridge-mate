@@ -10,7 +10,7 @@
 		"storybook": "storybook dev -p 6006",
 		"build-storybook": "storybook build",
 		"test": "vitest --workspace=vitest.workspace.ts",
-		"test:headless": "vitest --browser.headless=false --workspace=vitest.workspace.ts",
+		"test:headless": "vitest --browser.headless=true --workspace=vitest.workspace.ts",
 		"coverage": "vitest run --coverage",
 		"lint": "biome lint ./",
 		"format": "biome format ./"
