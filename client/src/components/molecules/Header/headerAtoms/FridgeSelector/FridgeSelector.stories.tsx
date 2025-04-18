@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import FridgeSelector from "@/components/molecules/Header/FridgeSelector";
-import type { SelectedView } from "@/components/molecules/Header/FridgeSelector";
+import FridgeSelector from "@/components/molecules/Header/headerAtoms/FridgeSelector/FridgeSelector";
+import type { SelectedView } from "@/components/molecules/Header/headerAtoms/FridgeSelector/FridgeSelector";
 
 const meta: Meta<typeof FridgeSelector> = {
-	title: "Modules/Header/FridgeSelector",
+	title: "Modules/Header/headerAtoms/FridgeSelector",
 	component: FridgeSelector,
 	tags: ["autodocs"],
 };
