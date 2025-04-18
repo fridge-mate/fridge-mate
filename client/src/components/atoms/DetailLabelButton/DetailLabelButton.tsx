@@ -13,7 +13,7 @@ const DetailLabelButton: React.FC<DetailLabelButtonProps> = ({
 			className="flex items-center space-x-2 text-lg"
 			onClick={() => onClick(itemId)}
 		>
-			<p>Detail:</p>
+			<p className="font-semibold">Detail:</p>
 			{/* heroicon url:https://heroicons.com/ iconName:adjustments-horizontal */}
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
