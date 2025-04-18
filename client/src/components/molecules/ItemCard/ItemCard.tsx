@@ -2,9 +2,9 @@ import ExpirationBadge from "@/components/atoms/ExpirationBadge/ExpirationBadge"
 import Label from "@/components/atoms/Label/Label";
 import type { GenreKey } from "@/components/atoms/Label/Label";
 import QuantityBadge from "@/components/atoms/QuantityBadge/QuantityBadge";
-import DetailLabelWithButton from "@/components/atoms/DetailLabelWithButton/DetailLabelWithButton";
+import DetailLabelButton from "@/components/atoms/DetailLabelWithButton/DetailLabelButton";
 type ItemCardProps = {
-	itemId: number;
+	itemId: string; //管理方法をstinrgかnumberか検討する
 	name: string;
 	imageUrl: string; //stringでそのままpathをもらう設計でいいのか再検討
 	daysLeft: number;
@@ -28,7 +28,7 @@ const ItemCard: React.FC<ItemCardProps> = ({
 		>
 			<div className="flex space-x-3">
 				<img src={`${imageUrl}`} alt="product" className="w-16 h-16" />
-				<div className="">
+				<div>
 					<ExpirationBadge daysLeft={daysLeft} />
 					<div className="flex space-x-3 items-center">
 						<p>{name}</p>
@@ -38,10 +38,7 @@ const ItemCard: React.FC<ItemCardProps> = ({
 			</div>
 			<div className="flex space-x-5">
 				<QuantityBadge count={quantity} />
-				<DetailLabelWithButton
-					itemId={itemId}
-					onClick={() => onDetailClick()}
-				/>
+				<DetailLabelButton itemId={itemId} onClick={onDetailClick} />
 			</div>
 		</div>
 	);
