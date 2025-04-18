@@ -1,7 +1,7 @@
 //商品ジャンルを受けとりそこからtext（ex.野菜）とtheme color（ex.green）を表示する様にする
 
 //フェーズ1ではuserがジャンルを自分で追加できず決まったジャンルないから選ぶ形にする
-type GenreKey = "fruit" | "vegetable" | "meat" | "drink" | "seasoning";
+export type GenreKey = "fruit" | "vegetable" | "meat" | "drink" | "seasoning";
 
 type LabelProps = {
 	genreKey: GenreKey;
