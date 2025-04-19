@@ -1,4 +1,5 @@
 import type { SelectedView } from "@/components/molecules/Header/Header";
+import Select from "@/components/atoms/Select/Select";
 
 type FridgeSelectorProps = {
 	selectedFridge: SelectedView;
@@ -10,17 +11,18 @@ const FridgeSelector: React.FC<FridgeSelectorProps> = ({
 	onChange,
 }) => {
 	return (
-		<select
-			id="fridge-selector"
+		<Select
 			value={selectedFridge}
-			onChange={(e) => onChange(e.target.value as SelectedView)}
-			className={`border px-2 py-1 rounded ${
+			onChange={(val) => onChange(val as SelectedView)}
+			placeholder="請選擇保管清單"
+			options={[
+				{ label: "冰箱中的物品", value: "fridge" },
+				{ label: "已過期項目", value: "expired" },
+			]}
+			className={`w-[143px] ${
 				selectedFridge === "fridge" ? "bg-white" : "bg-expired-light"
 			}`}
-		>
-			<option value="fridge">fridge</option>
-			<option value="expired">expired</option>
-		</select>
+		/>
 	);
 };
 
