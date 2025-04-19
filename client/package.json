@@ -16,13 +16,16 @@
 		"format": "biome format ./"
 	},
 	"dependencies": {
+		"class-variance-authority": "^0.7.1",
+		"clsx": "^2.1.1",
+		"lucide-react": "^0.501.0",
 		"react": "^19.0.0",
-		"react-dom": "^19.0.0"
+		"react-dom": "^19.0.0",
+		"tailwind-merge": "^3.2.0",
+		"tailwindcss-animate": "^1.0.7"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
-		"@testing-library/dom": "^10.4.0",
-		"@testing-library/react": "^16.3.0",
 		"@chromatic-com/storybook": "^3.2.6",
 		"@storybook/addon-essentials": "^8.6.12",
 		"@storybook/addon-onboarding": "^8.6.12",
@@ -31,6 +34,8 @@
 		"@storybook/react": "^8.6.12",
 		"@storybook/react-vite": "^8.6.12",
 		"@storybook/test": "^8.6.12",
+		"@testing-library/dom": "^10.4.0",
+		"@testing-library/react": "^16.3.0",
 		"@types/node": "^22.14.1",
 		"@types/react": "^19.0.10",
 		"@types/react-dom": "^19.0.4",
