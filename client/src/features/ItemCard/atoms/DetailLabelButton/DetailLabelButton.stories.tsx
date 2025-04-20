@@ -1,4 +1,4 @@
-import DetailLabelButton from "@/components/atoms/DetailLabelButton/DetailLabelButton";
+import DetailLabelButton from "@/features/ItemCard/atoms/DetailLabelButton/DetailLabelButton";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta: Meta<typeof DetailLabelButton> = {

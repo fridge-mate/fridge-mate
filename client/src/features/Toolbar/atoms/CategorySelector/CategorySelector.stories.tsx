@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import CategorySelector from "./CategorySelector";
+import CategorySelector from "@/features/Toolbar/atoms/CategorySelector/CategorySelector";
 import type { GenreKey } from "@/types/genre";
 
 const meta: Meta<typeof CategorySelector> = {

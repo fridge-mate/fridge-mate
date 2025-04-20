@@ -1,8 +1,8 @@
 import { useState } from "react";
 import type { GenreKey } from "@/types/genre";
-import SearchBar from "@/components/atoms/SerchBar/SearchBar";
+import SearchBar from "@/features/Toolbar/atoms/SerchBar/SearchBar";
 import Button from "@/components/atoms/Button/Button";
-import CategorySelector from "@/components/molecules/Toolbar/atoms/CategorySelector";
+import CategorySelector from "@/features/Toolbar/atoms/CategorySelector/CategorySelector";
 
 const Toolbar = () => {
 	//typeに関してdefault準備する必要もある
