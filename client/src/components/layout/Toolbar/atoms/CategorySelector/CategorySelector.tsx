@@ -1,13 +1,10 @@
 import Select from "@/components/atoms/Select/Select";
+import { selectedCategoryAtom } from "@/store/category";
 import type { GenreKey } from "@/types/genre";
-
-//⚠️(Redux後)propsではなくuseSlector&dispatchを使用する
-type CategorySelectorProps = {
-	selectedCategory: GenreKey;
-	onChange: (value: GenreKey) => void;
-};
+import { useAtom } from "jotai";
 
 const genreOptions = [
+	{ value: "all", label: "未選擇" },
 	{ value: "fruit", label: "水果" },
 	{ value: "vegetable", label: "蔬菜" },
 	{ value: "meat", label: "肉類" },
@@ -15,15 +12,13 @@ const genreOptions = [
 	{ value: "seasoning", label: "調味料" },
 ];
 
-const CategorySelector: React.FC<CategorySelectorProps> = ({
-	//⚠️(Redux後)propsではなくuseSlector&dispatchを使用する
-	selectedCategory,
-	onChange,
-}) => {
+const CategorySelector: React.FC = () => {
+	const [selectedCategory, setSelectedCategory] =
+		useAtom<GenreKey>(selectedCategoryAtom);
 	return (
 		<Select
 			value={selectedCategory}
-			onChange={(val) => onChange(val as GenreKey)}
+			onChange={(val) => setSelectedCategory(val as GenreKey)}
 			placeholder="請選擇分類"
 			options={genreOptions}
 			className="w-[160px]"
