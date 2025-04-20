@@ -2,7 +2,7 @@ import ExpirationBadge from "@/components/atoms/ExpirationBadge/ExpirationBadge"
 import Label from "@/components/atoms/Label/Label";
 import type { GenreKey } from "@/types/genre";
 import QuantityBadge from "@/components/atoms/QuantityBadge/QuantityBadge";
-import DetailLabelButton from "@/features/ItemCard/atoms/DetailLabelButton/DetailLabelButton";
+import DetailLabelButton from "@/features/items/ItemCard/atoms/DetailLabelButton/DetailLabelButton";
 type ItemCardProps = {
 	itemId: string; //管理方法をstinrgかnumberか検討する
 	name: string;

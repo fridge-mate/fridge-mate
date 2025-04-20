@@ -1,4 +1,4 @@
-import type { SelectedView } from "@/features/Header/Header";
+import type { SelectedView } from "@/components/layout/Header/Header";
 import Select from "@/components/atoms/Select/Select";
 
 type FridgeSelectorProps = {
