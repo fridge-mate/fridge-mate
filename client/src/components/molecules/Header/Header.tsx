@@ -9,12 +9,14 @@ const Header = () => {
 	// ⚠️（Redux設定後）useSlectorでstateを取得
 	const [selectedFridge, setSelectedFridge] = useState<SelectedView>("fridge");
 	return (
-		<header className="flex items-center justify-between px-4 py-2 border-b">
-			<FridgeSelector
-				selectedFridge={selectedFridge}
-				onChange={setSelectedFridge} //⚠️（Redux設定後）dispatchに変更
-			/>
-			<EditButton />
+		<header>
+			<div className="flex items-center justify-between px-4 py-2 border-b">
+				<FridgeSelector
+					selectedFridge={selectedFridge}
+					onChange={setSelectedFridge} //⚠️（Redux設定後）dispatchに変更
+				/>
+				<EditButton />
+			</div>
 		</header>
 	);
 };

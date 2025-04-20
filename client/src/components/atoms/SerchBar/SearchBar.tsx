@@ -1,6 +1,6 @@
 function SearchBar() {
 	return (
-		<div className="flex gap-x-3 border border-black p-2">
+		<div className="flex gap-x-3 border border-black p-3">
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				fill="none"

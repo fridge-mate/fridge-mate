@@ -22,7 +22,7 @@ type CustomSelectProps = {
 const Select: React.FC<CustomSelectProps> = ({
 	value,
 	onChange,
-	placeholder = "選択してください",
+	placeholder = "Please Slect",
 	options,
 	className = "w-[200px]",
 }) => {
