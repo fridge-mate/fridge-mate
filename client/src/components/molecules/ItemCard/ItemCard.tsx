@@ -1,6 +1,6 @@
 import ExpirationBadge from "@/components/atoms/ExpirationBadge/ExpirationBadge";
 import Label from "@/components/atoms/Label/Label";
-import type { GenreKey } from "@/components/atoms/Label/Label";
+import type { GenreKey } from "@/types/genre";
 import QuantityBadge from "@/components/atoms/QuantityBadge/QuantityBadge";
 import DetailLabelButton from "@/components/atoms/DetailLabelButton/DetailLabelButton";
 type ItemCardProps = {

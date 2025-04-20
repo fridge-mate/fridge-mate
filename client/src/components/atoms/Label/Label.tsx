@@ -1,18 +1,16 @@
+import type { GenreKey } from "@/types/genre";
 //商品ジャンルを受けとりそこからtext（ex.野菜）とtheme color（ex.green）を表示する様にする
-
 //フェーズ1ではuserがジャンルを自分で追加できず決まったジャンルないから選ぶ形にする
-export type GenreKey = "fruit" | "vegetable" | "meat" | "drink" | "seasoning";
-
 type LabelProps = {
 	genreKey: GenreKey;
 };
 
 const genreMap: Record<GenreKey, { name: string; color: string }> = {
-	fruit: { name: "Fruit", color: "bg-yellow-200" },
-	vegetable: { name: "Vegetable", color: "bg-green-200" },
-	meat: { name: "Meat", color: "bg-red-300" },
-	drink: { name: "Drink", color: "bg-blue-200" },
-	seasoning: { name: "Seasoning", color: "bg-purple-200" },
+	fruit: { name: "水果", color: "bg-yellow-200" },
+	vegetable: { name: "蔬菜", color: "bg-green-200" },
+	meat: { name: "肉類", color: "bg-red-300" },
+	drink: { name: "飲料", color: "bg-blue-200" },
+	seasoning: { name: "調味料", color: "bg-purple-200" },
 };
 
 export default function Label({ genreKey }: LabelProps) {

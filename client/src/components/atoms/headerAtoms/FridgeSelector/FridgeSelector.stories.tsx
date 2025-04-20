@@ -15,7 +15,7 @@ export const Default: Story = {
 	args: {
 		selectedFridge: "fridge",
 		onChange: (val: SelectedView) => {
-			console.log("Selected:", val);
+			console.log("🚀 選択された値:", val);
 		},
 	},
 };
@@ -24,7 +24,7 @@ export const ExpiredSelected: Story = {
 	args: {
 		selectedFridge: "expired",
 		onChange: (val: SelectedView) => {
-			console.log("Selected:", val);
+			console.log("📦 選択された値:", val);
 		},
 	},
 };
