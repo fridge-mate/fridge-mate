@@ -24,7 +24,7 @@ const ItemCard: React.FC<ItemCardProps> = ({
 }) => {
 	return (
 		<div
-			className={`flex justify-between p-5 ${daysLeft < 0 ? "bg-red-100" : "bg-white"}`}
+			className={`flex justify-between p-5 ${daysLeft < 0 ? "bg-expired-light" : "bg-white"}`}
 		>
 			<div className="flex space-x-3">
 				<img src={`${imageUrl}`} alt="product" className="w-16 h-16" />
