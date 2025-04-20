@@ -1,6 +1,7 @@
 function SearchBar() {
 	return (
 		<div className="flex gap-x-3 border border-black p-3">
+			{/* heroicon url:https://heroicons.com/ iconName:magnifying-glass */}
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				fill="none"

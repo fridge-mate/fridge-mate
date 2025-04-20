@@ -1,3 +1,5 @@
+import { twMerge } from "tailwind-merge";
+
 type ButtonProps = {
 	text: string;
 	onClick: () => void;
@@ -12,7 +14,7 @@ const Button: React.FC<ButtonProps> = ({ text, onClick, className = "" }) => {
 		<button
 			type="button"
 			onClick={onClick}
-			className={`${baseStyle} ${className}`}
+			className={twMerge(baseStyle, className)}
 		>
 			{text}
 		</button>
