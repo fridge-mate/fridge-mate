@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import ItemCard from "@/components/molecules/ItemCard/ItemCard";
+import ItemCard from "@/features/items/ItemCard/ItemCard";
 
 const meta: Meta<typeof ItemCard> = {
 	component: ItemCard,
