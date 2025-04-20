@@ -30,7 +30,7 @@ export const Sort: Story = {
 	args: {
 		text: "排序",
 		onClick: () => alert("進行排序"),
-		className: "border border-black rounded-full bg-white text-black px-6 py-2",
+		className: "",
 	},
 };
 
