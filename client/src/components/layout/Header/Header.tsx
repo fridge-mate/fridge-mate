@@ -1,6 +1,6 @@
 import { useState } from "react";
-import EditButton from "@/features/Header/atoms/EditButton/EditButton";
-import FridgeSelector from "@/features/Header/atoms/FridgeSelector/FridgeSelector";
+import EditButton from "@/components/layout/Header/atoms/EditButton/EditButton";
+import FridgeSelector from "@/components/layout/Header/atoms/FridgeSelector/FridgeSelector";
 
 // ⚠️将来 Redux に切り出す予定の型
 export type SelectedView = "fridge" | "expired";
