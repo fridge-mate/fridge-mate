@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import ItemCard from "@/features/items/ItemCard/ItemCard";
+import ItemCard from "@/features/items/components/ItemCard/ItemCard";
 
 const meta: Meta<typeof ItemCard> = {
 	component: ItemCard,
@@ -11,7 +11,7 @@ type Story = StoryObj<typeof ItemCard>;
 
 export const Apple: Story = {
 	args: {
-		name: "リンゴ",
+		name: "Apple",
 		imageUrl: "/images/items/apple.webp",
 		daysLeft: -2,
 		category: "fruit",
@@ -21,7 +21,7 @@ export const Apple: Story = {
 
 export const Carrot: Story = {
 	args: {
-		name: "ニンジン",
+		name: "Carrot",
 		imageUrl: "/images/items/carrot.webp",
 		daysLeft: 3,
 		category: "vegetable",
