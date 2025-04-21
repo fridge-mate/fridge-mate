@@ -1,4 +1,4 @@
 import { atom } from "jotai";
-import type { GenreKey } from "@/types/genre";
+import type { GenreSelectorKey } from "@/types/genre";
 
-export const selectedCategoryAtom = atom<GenreKey>("all");
+export const selectedCategoryAtom = atom<GenreSelectorKey>("all");

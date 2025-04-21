@@ -1,6 +1,6 @@
 import Select from "@/components/atoms/Select/Select";
 import { selectedCategoryAtom } from "@/store/category";
-import type { GenreKey } from "@/types/genre";
+import type { GenreSelectorKey } from "@/types/genre";
 import { useAtom } from "jotai";
 
 const genreOptions = [
@@ -14,11 +14,11 @@ const genreOptions = [
 
 const CategorySelector: React.FC = () => {
 	const [selectedCategory, setSelectedCategory] =
-		useAtom<GenreKey>(selectedCategoryAtom);
+		useAtom<GenreSelectorKey>(selectedCategoryAtom);
 	return (
 		<Select
 			value={selectedCategory}
-			onChange={(val) => setSelectedCategory(val as GenreKey)}
+			onChange={(val) => setSelectedCategory(val as GenreSelectorKey)}
 			placeholder="請選擇分類"
 			options={genreOptions}
 			className="w-[160px]"
