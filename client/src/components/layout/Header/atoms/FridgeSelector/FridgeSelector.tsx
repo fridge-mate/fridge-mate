@@ -1,5 +1,5 @@
 import { useAtom } from "jotai";
-import { selectedFridgeAtom } from "@/store/fridge";
+import { selectedFridgeAtom, type SelectedView } from "@/store/fridge";
 import Select from "@/components/atoms/Select/Select";
 
 const FridgeSelector: React.FC = () => {
@@ -8,7 +8,7 @@ const FridgeSelector: React.FC = () => {
 	return (
 		<Select
 			value={selectedFridge}
-			onChange={(val) => setSelectedFridge(val as "fridge" | "expired")}
+			onChange={(val: SelectedView) => setSelectedFridge(val)}
 			placeholder="請選擇保管清單"
 			options={[
 				{ label: "冰箱中的物品", value: "fridge" },
