@@ -1,19 +1,14 @@
-import type { SelectedView } from "@/components/layout/Header/Header";
+import { useAtom } from "jotai";
+import { selectedFridgeAtom, type SelectedView } from "@/store/fridge";
 import Select from "@/components/atoms/Select/Select";
 
-type FridgeSelectorProps = {
-	selectedFridge: SelectedView;
-	onChange: (view: SelectedView) => void;
-};
+const FridgeSelector: React.FC = () => {
+	const [selectedFridge, setSelectedFridge] = useAtom(selectedFridgeAtom);
 
-const FridgeSelector: React.FC<FridgeSelectorProps> = ({
-	selectedFridge,
-	onChange,
-}) => {
 	return (
 		<Select
 			value={selectedFridge}
-			onChange={(val) => onChange(val as SelectedView)}
+			onChange={(val: SelectedView) => setSelectedFridge(val)}
 			placeholder="請選擇保管清單"
 			options={[
 				{ label: "冰箱中的物品", value: "fridge" },

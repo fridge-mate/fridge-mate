@@ -3,7 +3,7 @@ import ItemCard from "@/features/items/ItemCard/ItemCard";
 
 const meta: Meta<typeof ItemCard> = {
 	component: ItemCard,
-	title: "Molecules/ItemCard",
+	title: "features/items/ItemCard",
 	tags: ["autodocs"],
 };
 export default meta;

@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 const meta: Meta<typeof DetailLabelButton> = {
 	component: DetailLabelButton,
-	title: "Atoms/DetailLabelButton",
+	title: "features/items/atoms/DetailLabelButton",
 	tags: ["autodocs"],
 };
 export default meta;

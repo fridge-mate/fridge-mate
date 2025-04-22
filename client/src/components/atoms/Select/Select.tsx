@@ -6,26 +6,26 @@ import {
 	SelectItem,
 } from "@/components/ui/select";
 
-type Option = {
-	value: string;
+type Option<T extends string> = {
+	value: T;
 	label: string;
 };
 
-type CustomSelectProps = {
-	value: string;
-	onChange: (value: string) => void;
+type CustomSelectProps<T extends string> = {
+	value: T;
+	onChange: (value: T) => void;
 	placeholder?: string;
-	options: Option[];
+	options: Option<T>[];
 	className?: string;
 };
 
-const Select: React.FC<CustomSelectProps> = ({
+const Select = <T extends string>({
 	value,
 	onChange,
-	placeholder = "Please Slect",
+	placeholder = "Please Select",
 	options,
 	className = "w-[200px]",
-}) => {
+}: CustomSelectProps<T>) => {
 	return (
 		<ShadSelect value={value} onValueChange={onChange}>
 			<SelectTrigger className={className}>

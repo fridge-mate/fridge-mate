@@ -1,20 +1,11 @@
-import { useState } from "react";
 import EditButton from "@/components/layout/Header/atoms/EditButton/EditButton";
 import FridgeSelector from "@/components/layout/Header/atoms/FridgeSelector/FridgeSelector";
 
-// ⚠️将来 Redux に切り出す予定の型
-export type SelectedView = "fridge" | "expired";
-
 const Header = () => {
-	// ⚠️（Redux設定後）useSlectorでstateを取得
-	const [selectedFridge, setSelectedFridge] = useState<SelectedView>("fridge");
 	return (
 		<header>
 			<div className="flex items-center justify-between px-4 py-2 border-b">
-				<FridgeSelector
-					selectedFridge={selectedFridge}
-					onChange={setSelectedFridge} //⚠️（Redux設定後）dispatchに変更
-				/>
+				<FridgeSelector />
 				<EditButton />
 			</div>
 		</header>
