@@ -14,7 +14,7 @@ const FridgeSelector: React.FC = () => {
 				{ label: "冰箱中的物品", value: "fridge" },
 				{ label: "已過期項目", value: "expired" },
 			]}
-			className={`w-[143px] ${
+			className={`w-[126px] py-1 text-xs ${
 				selectedFridge === "fridge" ? "bg-white" : "bg-expired-light"
 			}`}
 		/>
