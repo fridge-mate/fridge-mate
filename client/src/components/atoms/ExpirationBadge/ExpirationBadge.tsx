@@ -15,7 +15,7 @@ const ExpirationBadge: React.FC<ExpirationBadgeProps> = ({ daysLeft }) => {
 		bgColor = "text-black";
 	}
 
-	return <p className={`${bgColor} px-2 py-1 text-sm `}>{text}</p>;
+	return <p className={`${bgColor} px-2 py-1 text-xs`}>{text}</p>;
 };
 
 export default ExpirationBadge;
