@@ -1,6 +1,6 @@
 function SearchBar() {
 	return (
-		<div className="flex gap-x-3 border border-black p-3">
+		<div className="flex justify-center gap-x-3 border border-black p-3">
 			{/* heroicon url:https://heroicons.com/ iconName:magnifying-glass */}
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
@@ -8,7 +8,7 @@ function SearchBar() {
 				viewBox="0 0 24 24"
 				stroke-width="1.5"
 				stroke="currentColor"
-				className="w-10 h-10"
+				className="w-7 h-7"
 			>
 				<title id="icon-title">Serch icon</title>
 				<path
@@ -20,7 +20,7 @@ function SearchBar() {
 			<input
 				type="text"
 				placeholder="請輸入"
-				className="text-center border border-black text-sm"
+				className="text-center border border-black text-sm w-[200px]"
 			/>
 		</div>
 	);
