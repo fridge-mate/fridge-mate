@@ -1,1 +1,0 @@
-import{j as i}from"./jsx-runtime-D_zvdyIk.js";const r=({daysLeft:e})=>{let t="",o="";return e<0?(t=`已過期 ${Math.abs(e)} 天`,o="text-red-500 font-semibold"):e===0?(t="今天到期",o="text-red-400 font-medium"):(t=`剩下 ${e} 天`,o="text-black"),i.jsx("p",{className:`${o} px-2 py-1 text-sm `,children:t})};r.__docgenInfo={description:"",methods:[],displayName:"ExpirationBadge"};export{r as E};
