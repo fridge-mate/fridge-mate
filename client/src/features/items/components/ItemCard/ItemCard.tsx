@@ -28,6 +28,7 @@ const ItemCard: React.FC<ItemCardProps> = ({
 }) => {
 	return (
 		<div
+			key={itemId} //今後ItemCardでitemIdも必要ないならpropsからも消去
 			className={clsx(
 				"flex justify-between p-2 border border-black",
 				daysLeft < 0 ? "bg-expired-light" : "bg-white",
