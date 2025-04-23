@@ -1,21 +1,22 @@
 import { clsx } from "clsx";
 import ExpirationBadge from "@/components/atoms/ExpirationBadge/ExpirationBadge";
 import Label from "@/components/atoms/Label/Label";
-import type { GenreKey } from "@/types/genre";
 import QuantityBadge from "@/components/atoms/QuantityBadge/QuantityBadge";
-import DetailLabelButton from "@/features/items/components/ItemCard/atoms/DetailLabelButton/DetailLabelButton";
+import DetailLabelButton from "./atoms/DetailLabelButton/DetailLabelButton";
+import type { GenreKey } from "@/types/genre";
 
 export type ItemCardProps = {
-	itemId: string; //管理方法をstinrgかnumberか検討する
+	itemId: string;
 	name: string;
-	imageUrl: string; //stringでそのままpathをもらう設計でいいのか再検討
+	imageUrl: string;
 	daysLeft: number;
 	category: GenreKey;
 	quantity: number;
 	onDetailClick: () => void;
+	className?: string;
 };
 
-const ItemCard: React.FC<ItemCardProps & { className?: string }> = ({
+const ItemCard: React.FC<ItemCardProps> = ({
 	itemId,
 	name,
 	imageUrl,
@@ -23,7 +24,7 @@ const ItemCard: React.FC<ItemCardProps & { className?: string }> = ({
 	category,
 	quantity,
 	onDetailClick,
-	className, //itemList内で複数のcard表示時にborderが重ならないように複数個目にはborder-tをnoneに
+	className,
 }) => {
 	return (
 		<div
@@ -34,7 +35,7 @@ const ItemCard: React.FC<ItemCardProps & { className?: string }> = ({
 			)}
 		>
 			<div className="flex space-x-3">
-				<img src={`${imageUrl}`} alt="product" className="w-11 h-11" />
+				<img src={imageUrl} alt="product" className="w-11 h-11" />
 				<div>
 					<ExpirationBadge daysLeft={daysLeft} />
 					<div className="flex space-x-3 items-center">
@@ -45,7 +46,7 @@ const ItemCard: React.FC<ItemCardProps & { className?: string }> = ({
 			</div>
 			<div className="flex gap-x-2">
 				<QuantityBadge count={quantity} />
-				<DetailLabelButton itemId={itemId} onClick={onDetailClick} />
+				<DetailLabelButton onClick={onDetailClick} />
 			</div>
 		</div>
 	);
