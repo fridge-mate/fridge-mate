@@ -1,17 +1,13 @@
 type DetailLabelButtonProps = {
-	itemId: string;
-	onClick: (id: string) => void;
+	onClick: () => void;
 };
-//追加：親要素からdetailModalのopenのstate,itemId,onclockを受け取りopenをtoggleさせる
-const DetailLabelButton: React.FC<DetailLabelButtonProps> = ({
-	itemId,
-	onClick,
-}) => {
+
+const DetailLabelButton: React.FC<DetailLabelButtonProps> = ({ onClick }) => {
 	return (
 		<button
 			type="button"
+			onClick={onClick}
 			className="flex items-center space-x-2 text-lg"
-			onClick={() => onClick(itemId)}
 		>
 			{/* heroicon url:https://heroicons.com/ iconName:adjustments-horizontal */}
 			<svg
@@ -21,10 +17,8 @@ const DetailLabelButton: React.FC<DetailLabelButtonProps> = ({
 				strokeWidth={1.5}
 				stroke="currentColor"
 				className="w-7 h-7"
-				role="img"
-				aria-labelledby="icon-title"
 			>
-				<title id="icon-title">詳細アイコン</title>
+				<title>詳細アイコン</title>
 				<path
 					strokeLinecap="round"
 					strokeLinejoin="round"
