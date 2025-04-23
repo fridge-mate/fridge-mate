@@ -1,9 +1,11 @@
+import { clsx } from "clsx";
 import ExpirationBadge from "@/components/atoms/ExpirationBadge/ExpirationBadge";
 import Label from "@/components/atoms/Label/Label";
 import type { GenreKey } from "@/types/genre";
 import QuantityBadge from "@/components/atoms/QuantityBadge/QuantityBadge";
-import DetailLabelButton from "@/features/items/ItemCard/atoms/DetailLabelButton/DetailLabelButton";
-type ItemCardProps = {
+import DetailLabelButton from "@/features/items/components/ItemCard/atoms/DetailLabelButton/DetailLabelButton";
+
+export type ItemCardProps = {
 	itemId: string; //管理方法をstinrgかnumberか検討する
 	name: string;
 	imageUrl: string; //stringでそのままpathをもらう設計でいいのか再検討
@@ -13,7 +15,7 @@ type ItemCardProps = {
 	onDetailClick: () => void;
 };
 
-const ItemCard: React.FC<ItemCardProps> = ({
+const ItemCard: React.FC<ItemCardProps & { className?: string }> = ({
 	itemId,
 	name,
 	imageUrl,
@@ -21,10 +23,15 @@ const ItemCard: React.FC<ItemCardProps> = ({
 	category,
 	quantity,
 	onDetailClick,
+	className, //itemList内で複数のcard表示時にborderが重ならないように複数個目にはborder-tをnoneに
 }) => {
 	return (
 		<div
-			className={`flex justify-between p-5 ${daysLeft < 0 ? "bg-expired-light" : "bg-white"}`}
+			className={clsx(
+				"flex justify-between p-5 border border-black",
+				daysLeft < 0 ? "bg-expired-light" : "bg-white",
+				className,
+			)}
 		>
 			<div className="flex space-x-3">
 				<img src={`${imageUrl}`} alt="product" className="w-16 h-16" />
