@@ -18,7 +18,6 @@ type QuantityBadgeProps = {
 function QuantityBadge({ count, size = "md" }: QuantityBadgeProps) {
 	const iconSize = ICON_SIZE_MAP[size];
 	const textSize = TEXT_SIZE_MAP[size];
-
 	return (
 		<div className="flex items-center">
 			<button type="button">
