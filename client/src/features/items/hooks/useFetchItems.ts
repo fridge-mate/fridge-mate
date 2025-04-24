@@ -1,9 +1,10 @@
 import type { ItemCardProps } from "@/features/items/components/ItemCard/ItemCard";
+import { useQuery } from "@tanstack/react-query";
 import type { GenreKey } from "@/types/genre";
 
 //今後ここはend pointとdbが完成したらmockから置き換える
-export const useFetchItems = (): { data: ItemCardProps[] } => {
-	const data: ItemCardProps[] = [
+const useFetchItems = async (): Promise<ItemCardProps[]> => {
+	return [
 		{
 			itemId: "item-1",
 			name: "胡蘿蔔",
@@ -11,7 +12,7 @@ export const useFetchItems = (): { data: ItemCardProps[] } => {
 			daysLeft: 3,
 			category: "vegetable" as GenreKey,
 			quantity: 2,
-			onDetailClick: () => console.log("item-1 clicked"), //onclick関数の変更&propsとしてではないjotai内で定義するか考慮する
+			onDetailClick: () => console.log("item-1 clicked"),
 		},
 		{
 			itemId: "item-2",
@@ -32,5 +33,11 @@ export const useFetchItems = (): { data: ItemCardProps[] } => {
 			onDetailClick: () => console.log("item-3 clicked"),
 		},
 	];
-	return { data };
+};
+
+export const useFetchItemsQuery = () => {
+	return useQuery<ItemCardProps[]>({
+		queryKey: ["items"],
+		queryFn: useFetchItems,
+	});
 };
