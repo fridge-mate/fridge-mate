@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { ReactQueryProvider } from "@/lib/provider/providers/react-query-provider";
+import { ReactQueryProvider } from "@/lib/providers/react-query-provider";
 
 type ProvidersProps = {
 	children: ReactNode;
