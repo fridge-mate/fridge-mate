@@ -6,12 +6,13 @@ import EditModalContent from "@/components/modals/EditModal/EditModalContent";
 
 const Header = () => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
-
+	const toggleModal = (isOpened: boolean) => setIsModalOpen(isOpened);
+	
 	return (
 		<header>
 			<div className="flex items-center justify-between px-4 py-2 border-b">
 				<FridgeSelector />
-				<EditButton onClick={() => setIsModalOpen(true)} />
+				<EditButton onClick={() => toggleModal(true)} />
 			</div>
 
 			<Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
@@ -19,7 +20,7 @@ const Header = () => {
 					showCloseButton={false}
 					className="bg-white rounded-xl p-0 gap-0 top-[80%] transition-none w-[95%]"
 				>
-					<EditModalContent onClose={() => setIsModalOpen(false)} />
+					<EditModalContent onClose={() => toggleModal(false)} />
 				</DialogContent>
 			</Dialog>
 		</header>
