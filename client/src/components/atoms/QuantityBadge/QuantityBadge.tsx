@@ -1,20 +1,23 @@
+const ICON_SIZE_MAP = {
+  sm: "size-4",
+  md: "size-7",
+  lg: "size-8",
+} as const;
+
+const TEXT_SIZE_MAP = {
+  sm: "text-xs",
+  md: "text-sm",
+  lg: "text-base",
+} as const;
+
 type QuantityBadgeProps = {
 	count: number;
-	size?: "sm" | "md" | "lg";
+	size?: keyof typeof ICON_SIZE_MAP;
 };
 
 function QuantityBadge({ count, size = "md" }: QuantityBadgeProps) {
-	const iconSize = {
-		sm: "size-4",
-		md: "size-7",
-		lg: "size-8",
-	}[size];
-
-	const textSize = {
-		sm: "text-xs",
-		md: "text-sm",
-		lg: "text-base",
-	}[size];
+	const iconSize = ICON_SIZE_MAP[size];
+	const textSize = TEXT_SIZE_MAP[size];
 
 	return (
 		<div className="flex items-center">
