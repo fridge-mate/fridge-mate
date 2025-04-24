@@ -7,7 +7,7 @@ import EditModalContent from "@/components/modals/EditModal/EditModalContent";
 const Header = () => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const toggleModal = (isOpened: boolean) => setIsModalOpen(isOpened);
-	
+
 	return (
 		<header>
 			<div className="flex items-center justify-between px-4 py-2 border-b">

@@ -1,13 +1,13 @@
 const ICON_SIZE_MAP = {
-  sm: "size-4",
-  md: "size-7",
-  lg: "size-8",
+	sm: "size-4",
+	md: "size-7",
+	lg: "size-8",
 } as const;
 
 const TEXT_SIZE_MAP = {
-  sm: "text-xs",
-  md: "text-sm",
-  lg: "text-base",
+	sm: "text-xs",
+	md: "text-sm",
+	lg: "text-base",
 } as const;
 
 type QuantityBadgeProps = {
