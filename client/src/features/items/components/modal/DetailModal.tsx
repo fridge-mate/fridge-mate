@@ -16,10 +16,25 @@ type DetailModalProps = {
 	isOpen: boolean;
 	onClose: () => void;
 	item: ItemCardProps;
+	onDeleteSuccess: () => void;
+	onDeleteError: () => void;
 };
 
-const DetailModal: React.FC<DetailModalProps> = ({ isOpen, onClose, item }) => {
+const DetailModal: React.FC<DetailModalProps> = ({
+	isOpen,
+	onClose,
+	item,
+	onDeleteSuccess,
+	onDeleteError,
+}) => {
 	const { mutate: deleteItem } = useDeleteItemMutation();
+	const handleDelete = () => {
+		deleteItem(item.itemId, {
+			onSuccess: () => onDeleteSuccess(),
+			onError: () => onDeleteError(),
+		});
+	};
+
 	return (
 		<Dialog open={isOpen} onOpenChange={onClose}>
 			<DialogContent
@@ -65,7 +80,7 @@ const DetailModal: React.FC<DetailModalProps> = ({ isOpen, onClose, item }) => {
 
 						<div className="flex justify-around p-3">
 							<Button text="SAVE" onClick={() => console.log("Save")} />
-							<Button text="DELETE" onClick={() => deleteItem(item.itemId)} />
+							<Button text="DELETE" onClick={handleDelete} />
 						</div>
 					</div>
 				</div>

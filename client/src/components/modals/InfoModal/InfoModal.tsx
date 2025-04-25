@@ -26,7 +26,7 @@ const InfoModal: React.FC<InfoModalProps> = ({
 		<Dialog open={isOpen} onOpenChange={onClose}>
 			<DialogContent
 				showCloseButton={false}
-				className="max-w-md rounded-xl bg-white"
+				className="max-w-md rounded-xl bg-white w-[80%]"
 			>
 				<DialogHeader>
 					<DialogTitle>{title}</DialogTitle>
@@ -34,7 +34,11 @@ const InfoModal: React.FC<InfoModalProps> = ({
 				</DialogHeader>
 				<DialogFooter className="pt-4">
 					<DialogClose asChild>
-						<Button text="Close" onClick={onClose} />
+						<Button
+							text="Close"
+							onClick={onClose}
+							className="w-[80%] mx-auto"
+						/>
 					</DialogClose>
 				</DialogFooter>
 			</DialogContent>
