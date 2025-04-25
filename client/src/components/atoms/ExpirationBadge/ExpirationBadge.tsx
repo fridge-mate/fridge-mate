@@ -1,6 +1,14 @@
-type ExpirationBadgeProps = { daysLeft: number };
+import { twMerge } from "tailwind-merge";
 
-const ExpirationBadge: React.FC<ExpirationBadgeProps> = ({ daysLeft }) => {
+type ExpirationBadgeProps = {
+	daysLeft: number;
+	className?: string;
+};
+
+const ExpirationBadge: React.FC<ExpirationBadgeProps> = ({
+	daysLeft,
+	className = "",
+}) => {
 	let text = "";
 	let bgColor = "";
 
@@ -15,7 +23,9 @@ const ExpirationBadge: React.FC<ExpirationBadgeProps> = ({ daysLeft }) => {
 		bgColor = "text-black";
 	}
 
-	return <p className={`${bgColor} px-2 py-1 text-xs`}>{text}</p>;
+	return (
+		<p className={twMerge(`${bgColor} px-2 py-1 text-xs`, className)}>{text}</p>
+	);
 };
 
 export default ExpirationBadge;
