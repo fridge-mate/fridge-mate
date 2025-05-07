@@ -28,22 +28,22 @@ const ItemCard: React.FC<ItemCardProps & { className?: string }> = ({
 	return (
 		<div
 			className={clsx(
-				"flex justify-between p-5 border border-black",
+				"flex justify-between p-2 border border-black",
 				daysLeft < 0 ? "bg-expired-light" : "bg-white",
 				className,
 			)}
 		>
 			<div className="flex space-x-3">
-				<img src={`${imageUrl}`} alt="product" className="w-16 h-16" />
+				<img src={`${imageUrl}`} alt="product" className="w-11 h-11" />
 				<div>
 					<ExpirationBadge daysLeft={daysLeft} />
 					<div className="flex space-x-3 items-center">
-						<p>{name}</p>
+						<p className="text-xs">{name}</p>
 						<Label genreKey={category} />
 					</div>
 				</div>
 			</div>
-			<div className="flex space-x-5">
+			<div className="flex gap-x-2">
 				<QuantityBadge count={quantity} />
 				<DetailLabelButton itemId={itemId} onClick={onDetailClick} />
 			</div>

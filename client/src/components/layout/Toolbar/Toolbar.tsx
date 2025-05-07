@@ -15,7 +15,7 @@ const Toolbar = () => {
 				<Button
 					text="清除過期項目"
 					onClick={() => alert("已刪除過期項目！")}
-					className="bg-red-200 text-black border border-red-300 px-4 py-2 rounded-md"
+					className="bg-red-200 text-black border border-red-300 px-4 py-2"
 				/>
 			</div>
 		</div>

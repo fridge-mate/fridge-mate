@@ -21,7 +21,7 @@ const CategorySelector: React.FC = () => {
 			onChange={(val) => setSelectedCategory(val as GenreSelectorKey)}
 			placeholder="請選擇分類"
 			options={genreOptions}
-			className="w-[160px]"
+			className="w-[120px]"
 		/>
 	);
 };

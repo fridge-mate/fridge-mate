@@ -18,7 +18,7 @@ export default function Label({ genreKey }: LabelProps) {
 
 	return (
 		<span
-			className={`${genre.color} px-2 py-1 rounded-lg border border-black text-sm text-black`}
+			className={`${genre.color} px-2 py-1,5 rounded-xl border border-black text-xs text-black`}
 		>
 			{genre.name}
 		</span>
