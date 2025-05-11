@@ -1,8 +1,6 @@
 import {
 	Dialog,
 	DialogContent,
-	// DialogHeader,
-	// DialogTitle,
 	DialogFooter,
 	DialogClose,
 } from "@/components/ui/dialog";
@@ -12,15 +10,31 @@ import ExpirationBadge from "@/components/atoms/ExpirationBadge";
 import QuantityBadge from "@/components/atoms/QuantityBadge";
 import Label from "@/components/atoms/Label";
 import { useExpirationDate } from "@/features/items/hooks/useExpirationDate";
+import { useDeleteItemMutation } from "@/features/items/hooks/useDeleteItemMutation";
 
 type DetailModalProps = {
 	isOpen: boolean;
 	onClose: () => void;
 	item: ItemCardProps;
+	onDeleteSuccess: () => void;
+	onDeleteError: () => void;
 };
-// {itemId: 'item-1', name: '胡蘿蔔', imageUrl: '/images/items/carrot.webp', daysLeft: 3, category: 'vegetable', …}
 
-const DetailModal: React.FC<DetailModalProps> = ({ isOpen, onClose, item }) => {
+const DetailModal: React.FC<DetailModalProps> = ({
+	isOpen,
+	onClose,
+	item,
+	onDeleteSuccess,
+	onDeleteError,
+}) => {
+	const { mutate: deleteItem } = useDeleteItemMutation();
+	const handleDelete = () => {
+		deleteItem(item.itemId, {
+			onSuccess: () => onDeleteSuccess(),
+			onError: () => onDeleteError(),
+		});
+	};
+
 	return (
 		<Dialog open={isOpen} onOpenChange={onClose}>
 			<DialogContent
@@ -66,7 +80,7 @@ const DetailModal: React.FC<DetailModalProps> = ({ isOpen, onClose, item }) => {
 
 						<div className="flex justify-around p-3">
 							<Button text="SAVE" onClick={() => console.log("Save")} />
-							<Button text="DELETE" onClick={() => console.log("Delete")} />
+							<Button text="DELETE" onClick={handleDelete} />
 						</div>
 					</div>
 				</div>
