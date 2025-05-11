@@ -1,12 +1,15 @@
-const EditButton = () => {
+type EditButtonProps = {
+	onClick: () => void;
+};
+
+const EditButton: React.FC<EditButtonProps> = ({ onClick }) => {
 	return (
-		<button type="button">
-			{/* heroicon url:https://heroicons.com/ iconName:ellipsis-horizontal */}
+		<button type="button" onClick={onClick}>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				fill="none"
 				viewBox="0 0 24 24"
-				stroke-width="1.5"
+				strokeWidth="1.5"
 				stroke="currentColor"
 				className="w-9 h-9"
 				aria-labelledby="edit-icon-title"
