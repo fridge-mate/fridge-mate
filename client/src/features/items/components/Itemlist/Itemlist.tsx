@@ -20,7 +20,7 @@ const ItemList = () => {
 	if (isLoading) return <p>is Loading...</p>;
 	if (isError) return <p>發生錯誤，請重新載入頁面。</p>;
 	if (data.length === 0) {
-		return <p>該当するアイテムがありません。</p>;
+		return <p>沒有符合條件的項目。</p>;
 	}
 
 	return (
