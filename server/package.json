@@ -6,6 +6,7 @@
 		"cf-typegen": "wrangler types --env-interface CloudflareBindings"
 	},
 	"dependencies": {
+		"@google-cloud/vision": "^5.1.0",
 		"hono": "^4.7.7"
 	},
 	"devDependencies": {
