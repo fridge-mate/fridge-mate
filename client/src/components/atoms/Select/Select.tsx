@@ -24,14 +24,14 @@ const Select = <T extends string>({
 	onChange,
 	placeholder = "Please Select",
 	options,
-	className = "w-[200px]",
+	className = "w-[200px] py-1",
 }: CustomSelectProps<T>) => {
 	return (
 		<ShadSelect value={value} onValueChange={onChange}>
 			<SelectTrigger className={className}>
 				<SelectValue placeholder={placeholder} />
 			</SelectTrigger>
-			<SelectContent>
+			<SelectContent className="bg-white">
 				{options.map((opt) => (
 					<SelectItem key={opt.value} value={opt.value}>
 						{opt.label}

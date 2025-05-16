@@ -1,8 +1,9 @@
+import { twMerge } from "tailwind-merge";
 import type { GenreKey } from "@/types/genre";
-//商品ジャンルを受けとりそこからtext（ex.野菜）とtheme color（ex.green）を表示する様にする
-//フェーズ1ではuserがジャンルを自分で追加できず決まったジャンルないから選ぶ形にする
+
 type LabelProps = {
 	genreKey: GenreKey;
+	className?: string;
 };
 
 const genreMap: Record<GenreKey, { name: string; color: string }> = {
@@ -13,14 +14,12 @@ const genreMap: Record<GenreKey, { name: string; color: string }> = {
 	seasoning: { name: "調味料", color: "bg-purple-200" },
 };
 
-export default function Label({ genreKey }: LabelProps) {
+export default function Label({ genreKey, className }: LabelProps) {
 	const genre = genreMap[genreKey];
 
-	return (
-		<span
-			className={`${genre.color} px-2 py-1 rounded-lg border border-black text-sm text-black`}
-		>
-			{genre.name}
-		</span>
-	);
+	const baseClass =
+		"px-2 py-1.5 rounded-xl border border-black text-xs text-black";
+	const mergedClass = twMerge(genre.color, baseClass, className);
+
+	return <span className={mergedClass}>{genre.name}</span>;
 }
