@@ -7,7 +7,6 @@ const timestamps = {
   createdAt: int("created_at", { mode: "timestamp" })
     .notNull()
     .default(sql`(unixepoch())`),
-  deletedAt: int("deleted_at", { mode: "timestamp" }),
 };
 
 export const users = sqliteTable("users", {
