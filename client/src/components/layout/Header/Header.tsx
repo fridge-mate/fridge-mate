@@ -2,11 +2,24 @@ import { useState } from "react";
 import EditButton from "@/components/layout/Header/atoms/EditButton/EditButton";
 import FridgeSelector from "@/components/layout/Header/atoms/FridgeSelector/FridgeSelector";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
-import EditModalContent from "@/components/modals/EditModal/EditModalContent";
+import SelectModal from "@/components/modals/SelectModal";
 
 const Header = () => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const toggleModal = (isOpened: boolean) => setIsModalOpen(isOpened);
+	const selectModalProps = {
+		title: "Edit",
+		actions: [
+			{
+				name: "變更通知時間",
+				fn: () => console.log("變更通知時間"),
+			},
+			{
+				name: "多項選擇",
+				fn: () => console.log("多項選擇"),
+			},
+		],
+	};
 
 	return (
 		<header>
@@ -20,7 +33,11 @@ const Header = () => {
 					showCloseButton={false}
 					className="bg-white rounded-xl p-0 gap-0 top-[80%] transition-none w-[95%]"
 				>
-					<EditModalContent onClose={() => toggleModal(false)} />
+					<SelectModal
+						onClose={() => toggleModal(false)}
+						title={selectModalProps.title}
+						actions={selectModalProps.actions}
+					/>
 				</DialogContent>
 			</Dialog>
 		</header>
