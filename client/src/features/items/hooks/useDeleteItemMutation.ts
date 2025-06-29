@@ -1,13 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import type { ItemCardProps } from "../components/ItemCard/ItemCard";
-
-const deleteItem = async (itemId: string): Promise<void> => {
-	//backができたら実装（現在は方エラーを避けるためにsetTimeoutを使用）
-	return new Promise((resolve) => {
-		console.log(`削除: ${itemId}`);
-		setTimeout(() => resolve(), 300);
-	});
-};
+import { deleteItem, deleteAllExpired } from "@/lib/api/items";
 
 export const useDeleteItemMutation = () => {
 	const queryClient = useQueryClient();
@@ -16,6 +9,19 @@ export const useDeleteItemMutation = () => {
 		onSuccess: (_, deletedItemId) => {
 			queryClient.setQueryData<ItemCardProps[]>(["items"], (old) =>
 				old ? old.filter((item) => item.itemId !== deletedItemId) : [],
+			);
+		},
+	});
+};
+
+export const useDeleteAllExpiredMutation = () => {
+	const queryClient = useQueryClient();
+	return useMutation({
+		mutationFn: deleteAllExpired,
+		onSuccess: () => {
+			//backが完成したら[キャッシュからfilter]から[変更されたdbを取得し直す]に変更
+			queryClient.setQueryData<ItemCardProps[]>(["items"], (old) =>
+				old ? old.filter((item) => item.daysLeft > 0) : [],
 			);
 		},
 	});

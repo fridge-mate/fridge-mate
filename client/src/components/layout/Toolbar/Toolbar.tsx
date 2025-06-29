@@ -1,8 +1,10 @@
 import SearchBar from "@/components/layout/Toolbar/atoms/SerchBar/SearchBar";
 import Button from "@/components/atoms/Button/Button";
 import CategorySelector from "@/components/layout/Toolbar/atoms/CategorySelector/CategorySelector";
+import { useDeleteAllExpiredMutation } from "@/features/items/hooks/useDeleteItemMutation";
 
 const Toolbar = () => {
+	const { mutate } = useDeleteAllExpiredMutation();
 	return (
 		<div>
 			<div>
@@ -14,7 +16,7 @@ const Toolbar = () => {
 				{/* stateに合わせて↑か↓を変更できるようにする */}
 				<Button
 					text="清除過期項目"
-					onClick={() => alert("已刪除過期項目！")}
+					onClick={() => mutate()}
 					className="bg-red-200 text-black border border-red-300 px-4 py-2"
 				/>
 			</div>
