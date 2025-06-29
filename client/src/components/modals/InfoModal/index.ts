@@ -1,1 +1,1 @@
-export { default } from "@/components/modals/SelectModal/SelectModal";
+export { default } from "@/components/modals/InfoModal/InfoModal";
