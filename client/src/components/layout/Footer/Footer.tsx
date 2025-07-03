@@ -2,6 +2,7 @@ import Button from "@/components/atoms/Button/Button";
 import SelectModal from "@/components/modals/SelectModal";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { useState } from "react";
+import AddItemModal from "@/components/modals/AddItemModal";
 
 const Footer = () => {
 	const selectModalProps = {
@@ -9,7 +10,7 @@ const Footer = () => {
 		actions: [
 			{
 				name: "手動輸入",
-				fn: () => console.log("手動輸入"),
+				fn: () => setIsAddModalOpen(!isAddModalOpen),
 			},
 			{
 				name: "條碼輸入",
@@ -22,10 +23,10 @@ const Footer = () => {
 		],
 	};
 	const [serchIsModalOpen, setSerchIsModalOpen] = useState(false);
+	const [isAddModalOpen, setIsAddModalOpen] = useState(false);
 	return (
 		<footer className="flex justify-around p-4 border border-black">
 			<Button text="HOME" onClick={() => console.log("clicked")} />
-
 			{/* ------AddItem BTN & AddItem Modal--------------------- */}
 			<Button
 				text="ADD ITEMS"
@@ -43,6 +44,7 @@ const Footer = () => {
 					/>
 				</DialogContent>
 			</Dialog>
+			<AddItemModal isOpen={isAddModalOpen} onClose={() => console.log("")} />
 			{/* ------SETTING  & SETTING Modal--------------------- */}
 			<Button text="SETTING" onClick={() => console.log("clicked")} />
 		</footer>

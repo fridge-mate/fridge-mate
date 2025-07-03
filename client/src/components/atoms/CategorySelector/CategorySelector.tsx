@@ -1,8 +1,10 @@
 import Select from "@/components/atoms/Select/Select";
+import { twMerge } from "tailwind-merge";
 import { selectedCategoryAtom } from "@/store/category";
 import type { GenreSelectorKey } from "@/types/genre";
 import { useAtom } from "jotai";
 
+//need fix (optionはuserのitemとかからデフォルト選択肢を増やすことを可能にする)
 const genreOptions = [
 	{ value: "all", label: "未選擇" },
 	{ value: "fruit", label: "水果" },
@@ -12,16 +14,23 @@ const genreOptions = [
 	{ value: "seasoning", label: "調味料" },
 ];
 
-const CategorySelector: React.FC = () => {
-	const [selectedCategory, setSelectedCategory] =
-		useAtom<GenreSelectorKey>(selectedCategoryAtom);
+type CategorySelectorProps = {
+	state: GenreSelectorKey;
+	setState: (vallue: GenreSelectorKey) => void;
+	className?: string;
+};
+const CategorySelector: React.FC<CategorySelectorProps> = ({
+	state,
+	setState,
+	className,
+}) => {
 	return (
 		<Select
-			value={selectedCategory}
-			onChange={(val) => setSelectedCategory(val as GenreSelectorKey)}
+			value={state}
+			onChange={(val) => setState(val as GenreSelectorKey)}
 			placeholder="請選擇分類"
 			options={genreOptions}
-			className="w-[120px]"
+			className={twMerge("w-[120px]", className)}
 		/>
 	);
 };
