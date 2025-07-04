@@ -1,1 +1,1 @@
-export { default } from "@/components/modals/AddItemModal/addItemModal";
+export { default } from "@/components/modals/AddItemModal/AddItemModal";

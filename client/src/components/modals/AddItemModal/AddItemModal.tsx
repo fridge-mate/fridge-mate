@@ -4,9 +4,8 @@ import {
 	DialogFooter,
 	DialogClose,
 } from "@/components/ui/dialog";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import Button from "@/components/atoms/Button";
-import ExpirationBadge from "@/components/atoms/ExpirationBadge";
 import QuantityBadge from "@/components/atoms/QuantityBadge";
 import CategorySelector from "@/components/atoms/CategorySelector";
 import { useState } from "react";
@@ -16,18 +15,27 @@ type AddItemModalProps = {
 	isOpen: boolean;
 	onClose: () => void;
 };
+type FormValues = {
+	category: GenreSelectorKey;
+	itemImage: FileList;
+};
 
 const AddItemModal: React.FC<AddItemModalProps> = ({ isOpen, onClose }) => {
 	const [preview, setPreview] = useState<string | null>(null);
 	const {
 		register,
 		handleSubmit,
-		formState: { errors },
-	} = useForm();
+		// formState: { errors },
+		control,
+	} = useForm<FormValues>({
+		defaultValues: {
+			category: "all",
+		},
+	});
 	const onSubmit = () => {
 		console.log();
 	};
-	const [categoryState, setCategoryState] = useState<GenreSelectorKey>("all");
+	// const [categoryState, setCategoryState] = useState<GenreSelectorKey>("all");
 	return (
 		<Dialog open={isOpen} onOpenChange={onClose}>
 			<DialogContent
@@ -62,6 +70,14 @@ const AddItemModal: React.FC<AddItemModalProps> = ({ isOpen, onClose }) => {
 										</span>
 									)}
 									<input
+										{...register("itemImage", {
+											onChange: (e) => {
+												const file = e.target.files?.[0];
+												if (file) {
+													setPreview(URL.createObjectURL(file));
+												}
+											},
+										})}
 										id="fileInput"
 										type="file"
 										accept="image/*"
@@ -78,9 +94,15 @@ const AddItemModal: React.FC<AddItemModalProps> = ({ isOpen, onClose }) => {
 							<div className="w-1/2 p-3 pr-10 flex flex-col  items-center justify-around py-6">
 								{/* <Label genreKey="fruit" className="text-base px-4" /> */}
 								<div className="mb-3">
-									<CategorySelector
-										state={categoryState}
-										setState={setCategoryState}
+									<Controller
+										name="category"
+										control={control}
+										render={({ field }) => (
+											<CategorySelector
+												state={field.value}
+												setState={field.onChange}
+											/>
+										)}
 									/>
 								</div>
 								{/* <h2 className="text-3xl">TEST</h2> */}

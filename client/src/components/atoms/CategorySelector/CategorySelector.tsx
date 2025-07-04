@@ -1,8 +1,6 @@
 import Select from "@/components/atoms/Select/Select";
 import { twMerge } from "tailwind-merge";
-import { selectedCategoryAtom } from "@/store/category";
 import type { GenreSelectorKey } from "@/types/genre";
-import { useAtom } from "jotai";
 
 //need fix (optionはuserのitemとかからデフォルト選択肢を増やすことを可能にする)
 const genreOptions = [

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import CategorySelector from "@/components/layout/Toolbar/atoms/CategorySelector/CategorySelector";
+import CategorySelector from "@/components/atoms/CategorySelector";
 
 const meta: Meta<typeof CategorySelector> = {
 	title: "layout/Toolbar/CategorySelector",
@@ -14,18 +14,18 @@ type Story = StoryObj<typeof CategorySelector>;
 
 export const Default: Story = {
 	args: {
-		selectedCategory: "all",
+		state: "all",
 	},
 };
 
 export const MeatSelected: Story = {
 	args: {
-		selectedCategory: "meat",
+		state: "meat",
 	},
 };
 
 export const DrinkSelected: Story = {
 	args: {
-		selectedCategory: "drink",
+		state: "drink",
 	},
 };
