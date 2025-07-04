@@ -42,6 +42,16 @@ const AddItemModal: React.FC<AddItemModalProps> = ({ isOpen, onClose }) => {
 				className="bg-white p-0 rounded-xl w-[90%]"
 				showCloseButton={false}
 			>
+				<DialogClose asChild>
+					<button
+						type="button"
+						className="absolute top-3 right-3 p-2 rounded-full hover:bg-gray-200"
+						onClick={() => onClose()}
+						aria-label="Close"
+					>
+						×
+					</button>
+				</DialogClose>
 				<form onSubmit={handleSubmit(onSubmit)}>
 					<div className="p-4">
 						<div className="flex py-6">
