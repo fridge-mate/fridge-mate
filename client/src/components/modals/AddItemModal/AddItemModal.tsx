@@ -1,3 +1,6 @@
+import { useState } from "react";
+import type { GenreSelectorKey } from "@/types/genre";
+import { format } from "date-fns";
 import {
 	Dialog,
 	DialogContent,
@@ -5,37 +8,37 @@ import {
 	DialogClose,
 } from "@/components/ui/dialog";
 import { useForm, Controller } from "react-hook-form";
+import CalendarPop from "@/components/modals/CalendarPop";
 import Button from "@/components/atoms/Button";
 import QuantityBadge from "@/components/atoms/QuantityBadge";
 import CategorySelector from "@/components/atoms/CategorySelector";
-import { useState } from "react";
-import type { GenreSelectorKey } from "@/types/genre";
 
 type AddItemModalProps = {
 	isOpen: boolean;
 	onClose: () => void;
 };
+
 type FormValues = {
 	category: GenreSelectorKey;
 	itemImage: FileList;
+	itemName: string;
 };
 
 const AddItemModal: React.FC<AddItemModalProps> = ({ isOpen, onClose }) => {
+	const [date, setDate] = useState<Date>();
 	const [preview, setPreview] = useState<string | null>(null);
-	const {
-		register,
-		handleSubmit,
-		// formState: { errors },
-		control,
-	} = useForm<FormValues>({
+	const [count, setCount] = useState(0);
+
+	const { register, handleSubmit, control } = useForm<FormValues>({
 		defaultValues: {
 			category: "all",
 		},
 	});
+
 	const onSubmit = () => {
-		console.log();
+		console.log("保存処理");
 	};
-	// const [categoryState, setCategoryState] = useState<GenreSelectorKey>("all");
+
 	return (
 		<Dialog open={isOpen} onOpenChange={onClose}>
 			<DialogContent
@@ -92,17 +95,10 @@ const AddItemModal: React.FC<AddItemModalProps> = ({ isOpen, onClose }) => {
 										type="file"
 										accept="image/*"
 										className="hidden"
-										onChange={(e) => {
-											const file = e.target.files?.[0];
-											if (file) {
-												setPreview(URL.createObjectURL(file));
-											}
-										}}
 									/>
 								</div>
 							</div>
-							<div className="w-1/2 p-3 pr-10 flex flex-col  items-center justify-around py-6">
-								{/* <Label genreKey="fruit" className="text-base px-4" /> */}
+							<div className="w-1/2 p-3 pr-10 flex flex-col items-center justify-around py-6">
 								<div className="mb-3">
 									<Controller
 										name="category"
@@ -115,26 +111,25 @@ const AddItemModal: React.FC<AddItemModalProps> = ({ isOpen, onClose }) => {
 										)}
 									/>
 								</div>
-								{/* <h2 className="text-3xl">TEST</h2> */}
 								<input
+									{...register("itemName")}
 									type="text"
 									placeholder="商品名字"
 									className="bg-slate-100 placeholder:text-lg p-1 border border-black rounded-lg"
 								/>
 							</div>
 						</div>
-						<div className="border border-black rounded-xl">
-							<div className="py-6 px-6 text-xl">
-								{/* <p>賞味期限</p> */}
-								<input type="text" placeholder="賞味期限" className="" />
-								<div className="flex items-center justify-between text-xl">
-									<p>test</p>
-									{/* <ExpirationBadge daysLeft={2} className=" text-base" /> */}
+						<div className="border border-black rounded-xl mt-4">
+							<div className="flex flex-row py-6 px-6 text-xl">
+								<p>賞味期限</p>
+								<div className="flex flex-row justify-around items-center gap-4 mt-2">
+									選択日付:
+									<CalendarPop date={date} setDate={setDate} />
 								</div>
 							</div>
 							<div className="flex justify-between border-t border-black py-6 px-6 text-xl">
 								<p>數量</p>
-								<QuantityBadge count={3} size="lg" />
+								<QuantityBadge count={count} setCount={setCount} size="lg" />
 							</div>
 							<div className="flex flex-col gap-2 border-t border-b border-black py-6 px-6">
 								<p>Memo</p>

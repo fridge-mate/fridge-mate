@@ -12,15 +12,21 @@ const TEXT_SIZE_MAP = {
 
 type QuantityBadgeProps = {
 	count: number;
+	setCount?: (n: number) => void;
 	size?: keyof typeof ICON_SIZE_MAP;
 };
 
-function QuantityBadge({ count, size = "md" }: QuantityBadgeProps) {
+function QuantityBadge({ count, setCount, size = "md" }: QuantityBadgeProps) {
 	const iconSize = ICON_SIZE_MAP[size];
 	const textSize = TEXT_SIZE_MAP[size];
+
 	return (
 		<div className="flex items-center">
-			<button type="button">
+			<button
+				type="button"
+				disabled={!setCount}
+				onClick={() => setCount?.(count + 1)}
+			>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					fill="none"
@@ -42,7 +48,11 @@ function QuantityBadge({ count, size = "md" }: QuantityBadgeProps) {
 				Quantity: {count}
 			</span>
 
-			<button type="button">
+			<button
+				type="button"
+				disabled={!setCount}
+				onClick={() => setCount?.(count - 1)}
+			>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					fill="none"
