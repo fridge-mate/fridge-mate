@@ -41,7 +41,7 @@ const ItemCard: React.FC<ItemCardProps> = ({
 					<ExpirationBadge daysLeft={daysLeft} />
 					<div className="flex space-x-3 items-center">
 						<p className="text-xs">{name}</p>
-						<Label genreKey={category} />
+						<Label genreKey={category} isSelect={false} />
 					</div>
 				</div>
 			</div>

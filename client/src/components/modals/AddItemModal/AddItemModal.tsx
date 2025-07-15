@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { GenreSelectorKey } from "@/types/genre";
 import {
 	Dialog,
@@ -11,6 +11,7 @@ import CalendarPop from "@/components/modals/CalendarPop";
 import Button from "@/components/atoms/Button";
 import QuantityBadge from "@/components/atoms/QuantityBadge";
 import CategorySelector from "@/components/atoms/CategorySelector";
+import dayjs from "dayjs";
 
 type AddItemModalProps = {
 	isOpen: boolean;
@@ -21,25 +22,40 @@ type FormValues = {
 	category: GenreSelectorKey;
 	itemImage: FileList;
 	itemName: string;
+	expiryDate?: Date;
+	quantity: number;
+	memo: string | null;
 };
 
 const AddItemModal: React.FC<AddItemModalProps> = ({ isOpen, onClose }) => {
-	const [date, setDate] = useState<Date>();
+	// const [date, setDate] = useState<Date>();
 	const [preview, setPreview] = useState<string | null>(null);
 	const [count, setCount] = useState(0);
 
-	const { register, handleSubmit, control } = useForm<FormValues>({
+	const { register, handleSubmit, control, reset } = useForm<FormValues>({
 		defaultValues: {
 			category: "all",
+			quantity: 0,
+			itemName: "",
+			expiryDate: dayjs().toDate(),
+			memo: "",
 		},
 	});
 
-	const onSubmit = () => {
-		console.log("保存処理");
+	useEffect(() => {}, []);
+
+	const onSubmit = (data: FormValues) => {
+		console.log("FormValues :", data);
+	};
+
+	//closeと同時に全ての入力値のstateも消去
+	const handleModalAllClear = () => {
+		setPreview(null);
+		onClose();
 	};
 
 	return (
-		<Dialog open={isOpen} onOpenChange={onClose}>
+		<Dialog open={isOpen} onOpenChange={handleModalAllClear}>
 			<DialogContent
 				className="bg-white p-0 rounded-xl w-[90%]"
 				showCloseButton={false}
@@ -123,16 +139,36 @@ const AddItemModal: React.FC<AddItemModalProps> = ({ isOpen, onClose }) => {
 								<p>賞味期限</p>
 								<div className="flex flex-row justify-around items-center gap-4 mt-2">
 									選択日付:
-									<CalendarPop date={date} setDate={setDate} />
+									<Controller
+										name="expiryDate"
+										control={control}
+										render={({ field }) => (
+											<CalendarPop
+												date={field.value}
+												setDate={field.onChange}
+											/>
+										)}
+									/>
 								</div>
 							</div>
 							<div className="flex justify-between border-t border-black py-6 px-6 text-xl">
 								<p>數量</p>
-								<QuantityBadge count={count} setCount={setCount} size="lg" />
+								<Controller
+									name="quantity"
+									control={control}
+									render={({ field }) => (
+										<QuantityBadge
+											count={field.value}
+											setCount={field.onChange}
+											size="lg"
+										/>
+									)}
+								/>
 							</div>
 							<div className="flex flex-col gap-2 border-t border-b border-black py-6 px-6">
 								<p>Memo</p>
 								<textarea
+									{...register("memo")}
 									placeholder="請輸入"
 									className="w-full h-10 border border-black placeholder-gray-400 text-lg text-center leading-9"
 								/>
@@ -140,15 +176,13 @@ const AddItemModal: React.FC<AddItemModalProps> = ({ isOpen, onClose }) => {
 						</div>
 					</div>
 					<DialogFooter>
-						<DialogClose asChild>
-							<div className="flex justify-around p-3">
-								<Button
-									text="SAVE"
-									onClick={() => console.log("Save")}
-									className="w-full border-none text-lg"
-								/>
-							</div>
-						</DialogClose>
+						<div className="flex justify-around p-3">
+							<Button
+								text="SAVE"
+								type="submit"
+								className="w-full border-none text-lg"
+							/>
+						</div>
 					</DialogFooter>
 				</form>
 			</DialogContent>
