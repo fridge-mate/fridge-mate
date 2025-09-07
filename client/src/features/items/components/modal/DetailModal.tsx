@@ -32,7 +32,7 @@ const DetailModal: React.FC<DetailModalProps> = ({
 	onDeleteSuccess,
 	onDeleteError,
 }) => {
-	const { handleSubmit, register, setValue, reset } = useForm({
+	const { handleSubmit, register, reset } = useForm({
 		defaultValues: {
 			itemId: "",
 			name: "",

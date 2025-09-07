@@ -30,9 +30,9 @@ type FormValues = {
 const AddItemModal: React.FC<AddItemModalProps> = ({ isOpen, onClose }) => {
 	// const [date, setDate] = useState<Date>();
 	const [preview, setPreview] = useState<string | null>(null);
-	const [count, setCount] = useState(0);
+	// const [count, setCount] = useState(0);
 
-	const { register, handleSubmit, control, reset } = useForm<FormValues>({
+	const { register, handleSubmit, control } = useForm<FormValues>({
 		defaultValues: {
 			category: "all",
 			quantity: 0,
