@@ -46,7 +46,10 @@ const Footer = () => {
 			</Dialog>
 			<AddItemModal
 				isOpen={isAddModalOpen}
-				onClose={() => setIsAddModalOpen(false)}
+				onClose={() => {
+					setIsAddModalOpen(false);
+					setSerchIsModalOpen(false);
+				}}
 			/>
 			{/* ------SETTING  & SETTING Modal--------------------- */}
 			<Button text="SETTING" onClick={() => console.log("clicked")} />

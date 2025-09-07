@@ -32,6 +32,7 @@ const CalendarPop: React.FC<CalendarPopProps> = ({ date, setDate }) => (
 				modifiersClassNames={{
 					today: "bg-red-200 rounded-full",
 				}}
+				disabled={[(day) => dayjs(day).isBefore(dayjs().startOf("day"), "day")]}
 			/>
 		</DropdownMenuContent>
 	</DropdownMenu>

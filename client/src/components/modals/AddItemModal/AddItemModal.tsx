@@ -46,6 +46,7 @@ const AddItemModal: React.FC<AddItemModalProps> = ({ isOpen, onClose }) => {
 
 	const onSubmit = (data: FormValues) => {
 		console.log("FormValues :", data);
+		onClose();
 	};
 
 	//closeと同時に全ての入力値のstateも消去
@@ -135,9 +136,9 @@ const AddItemModal: React.FC<AddItemModalProps> = ({ isOpen, onClose }) => {
 							</div>
 						</div>
 						<div className="border border-black rounded-xl mt-4">
-							<div className="flex flex-row py-6 px-6 text-xl">
+							<div className="flex flex-row items-center justify-between py-6 px-6 text-xl">
 								<p>賞味期限</p>
-								<div className="flex flex-row justify-around items-center gap-4 mt-2">
+								<div className="flex flex-row justify-around items-center gap-4 ">
 									選択日付:
 									<Controller
 										name="expiryDate"
